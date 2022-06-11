@@ -1,0 +1,11 @@
+一、具体的表达
+    1-promise是一个构造函数
+    2-promise对象用来封装一个异步操作并可以获取成功/失败的结果值
+
+二、promise的状态改变
+    1、pending->resolved
+    2、pending->rejected
+    注意：只有这 2 种, 且一个 promise 对象只能改变一次
+
+
+

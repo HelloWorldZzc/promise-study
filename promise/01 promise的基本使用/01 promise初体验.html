@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基本使用</title>
+</head>
+<link crossorigin='anonymous' href="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css"
+    rel="stylesheet">
+
+<body>
+    <div class="container">
+        <h2 class="page-header">Promise 初体验</h2>
+        <button class="btn btn-primary" id="btn">点击抽奖</button>
+    </div>
+</body>
+<script>
+    const btn = document.getElementsByTagName("button")[0];
+    btn.onclick = function () {
+        // 按照promise的形式去写
+        const p = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                let n = Math.round(Math.random() * 100);
+                if (n > 50) {
+                    resolve(n);
+                }
+                else {
+                    reject(n);
+                }
+            }, 1000);
+        })
+        console.log(p)
+        p.then((value) => {
+            alert('恭喜恭喜, 奖品为 10万 RMB 劳斯莱斯优惠券, 您的中奖数字为 ' + value);
+        }, (reason) => {
+            alert('很遗憾, 您没有中奖, 您的中奖数字为 ' + reason);
+        })
+    }
+
+
+
+
+</script>
+
+</html>

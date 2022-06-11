@@ -1,0 +1,2 @@
+在promise.resolve与reject之前都是正常的
+但是一些到all的封装就不知道哪里出错了，就是一直展示不了了

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // Promise.all()
+    //  包含 n 个 promise 的数组
+    // 说明: 返回一个新的 promise, 只有所有的 promise 都成功才成功, 只要有一个失败了就直接失败
+    let p1 = Promise.all([Promise.resolve('成功'), Promise.resolve(new Promise((resolve, reject) => {
+        reject("error")
+    }))]);
+    let p2 = Promise.all([Promise.resolve(new Promise((resolve, reject) => {
+        resolve('OK');
+    }))]);
+    console.log(p1);
+    console.log(p2);
+
+    // Promise.race()
+    // 包含 n 个 promise 的数组
+    // 说明: 返回一个新的 promise, 第一个完成的 promise 的结果状态就是最终的结果状态
+
+    let p3 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve('OK');
+        }, 1000);
+    })
+    let p4 = Promise.resolve('Success');
+    let p5 = Promise.resolve('Oh Yeah');
+    //调用
+    const result = Promise.race([p3, p4, p5]);
+    console.log(result);
+
+</script>
+
+</html>
